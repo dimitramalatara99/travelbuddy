@@ -1,3 +1,6 @@
+import csv
+
+
 class User:
     def __init__(self, u_id, u_email, u_phone):
         self.u_id = u_id
@@ -17,15 +20,43 @@ class Traveler(User):
         self.tv_authentication = tv_authentication
 
 
-class Business(User):
-    instances = []
+# class Business(User):
+#     instances = []
+#
+#     def __init__(self, u_id, u_email, u_phone, b_name, b_destination, b_bookings):
+#         super().__init__(u_id, u_email, u_phone)
+#         self.b_name = b_name
+#         self.b_destination = b_destination
+#         self.b_bookings = b_bookings
+#         Business.instances.append(self)
+#
+#     def __repr__(self):
+#         # Provide a string representation of the object for debugging
+#         return f"Business(b_name={self.b_name}, b_destination={self.b_destination}, b_bookings={self.b_bookings})"
+#
 
-    def __init__(self, u_id, u_email, u_phone, b_name, b_destination, b_bookings):
-        super().__init__(u_id, u_email, u_phone)
-        self.b_name = b_name
-        self.b_destination = b_destination
-        self.b_bookings = b_bookings
-        Business.instances.append(self)
+# class BusinessController:
+#     def __init__(self):
+
+# class CSVController:
+#     def __init__(self, csv_file_path):
+#         self.csv_file_path = csv_file_path
+#
+#     def get_business_by_dest(self, b_dest):
+#         with open(self.csv_file_path, newline='') as csvfile:
+#             reader = csv.DictReader(csvfile)
+#             for row in reader:
+#                 if row['b_destination'] == str(b_dest):
+#                     return Business(
+#                         u_id=row['u_id'],
+#                         u_email=row['u_email'],
+#                         u_phone=row['u_phone'],
+#                         b_name = row['b_name'],
+#                         b_destination = row['b_destination'],
+#                         b_bookings = row['b_bookings']
+#
+#                     )
+#
 
 
 class TB:

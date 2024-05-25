@@ -1,3 +1,6 @@
 u_id,u_email,u_phone,tv_name,tv_last_name,tv_age,tv_wallet,tv_tb,tv_friends,tv_authentication,b_name,b_destination,b_bookings,tr_id,tr_traveler,tr_status,tr_date,tr_options,tr_phone,tr_advance_pay,tr_payment_type,tr_payment_status,opt_id,opt_post_id,opt_vibe,opt_best_season,opt_average_age,opt_average_budget,dst_name,exp_name,exp_destination,exp_bookings,tb_id,tb_status,tb_trip,tb_info,tb_request,tb_buddies,w_id,w_balance,r_id,r_options,r_travelers
 1,hdf,dghtfdg,gghjd,fjf,fjg,fgjf,gfj,gfj,hfjd,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 3,,,Charlie,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+4,biz1,698755223,,,,,,,,biiizzz,athens,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+5,biz2,6957157140,,,,,,,,biiizzzz2,patra,4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+6,bizz3,6986762681,,,,,,,,baz,athens,6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
