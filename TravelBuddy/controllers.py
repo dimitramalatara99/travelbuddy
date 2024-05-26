@@ -1,5 +1,5 @@
 from dal import CSVController
-from models import Trip
+from models import *
 from views import AccommodationScreen
 
 
@@ -22,3 +22,21 @@ class TripController:
 
     def get_traveller_basket(self, traveler):
         return self.dal.get_basket(traveler)
+
+
+class DestinationController:
+    def __init__(self, dal):
+        self.dal = dal
+        self.destinations = []
+
+    def create_all_destinations(self):
+        self.destinations = self.dal.load_all_dest()
+        print(self.destinations)
+
+    def check_destination(self, b_dest):
+        name = b_dest.lower()
+        return any(dest.dst_name == name for dest in self.destinations)
+
+    def show_dests(self):
+        return self.destinations
+

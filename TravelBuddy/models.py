@@ -20,6 +20,30 @@ class Business(User):
         return f"Business(b_name={self.b_name}, b_destination={self.b_destination}, b_bookings={self.b_bookings})"
 
 
+class Options:
+    def __init__(self, opt_id, opt_post_id, opt_vibe, opt_best_season, opt_average_age, opt_average_budget):
+        self.opt_id = opt_id
+        self.opt_post_id = opt_post_id
+        self.opt_vibe = opt_vibe
+        self.opt_best_season = opt_best_season
+        self.opt_average_age = opt_average_age
+        self.opt_average_budget = opt_average_budget
+
+
+class Destination(Options):
+    _destinations = []
+
+    def __init__(self, opt_id, opt_post_id, opt_vibe, opt_best_season, opt_average_age, opt_average_budget, dst_name):
+        super().__init__(opt_id, opt_post_id, opt_vibe, opt_best_season, opt_average_age, opt_average_budget)
+        self.dst_name = dst_name
+
+    def __repr__(self):
+        return (f"Destination(opt_id={self.opt_id}, opt_post_id={self.opt_post_id}, opt_vibe={self.opt_vibe}, "
+                f"opt_best_season={self.opt_best_season}, opt_average_age={self.opt_average_age}, opt_average_budget={self.opt_average_budget}, dst_name={self.dst_name})")
+
+
+
+
 class Trip:
     def __init__(self, tr_id, tr_traveler, tr_status, tr_people, tr_date, tr_destination, tr_accommodation, tr_options, tr_phone, tr_advance_pay, tr_payment_type, tr_payment_status):
         self.tr_id = tr_id

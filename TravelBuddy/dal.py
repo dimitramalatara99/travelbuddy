@@ -22,9 +22,7 @@ class CSVController:
                     b_name=row['b_name'],
                     b_destination=row['b_destination'],
                     b_bookings=row['b_bookings']
-
                 )
-
                 businesses.append(business)
         return businesses
 
@@ -61,7 +59,7 @@ class CSVController:
                     row['tr_id'] = int(row['tr_id'])
                 while True:
                     if pd.notna(row['tr_people']):
-                        row['tr_people'] = int(row['tr_people'])
+                        row['tr_people'] = int(float(row['tr_people']))
                         break
                     else:
                         row['tr_people'] = 1
@@ -84,3 +82,26 @@ class CSVController:
                     )
                     basket.append(trip)
         return basket
+
+    def load_all_dest(self):
+        self.df = pd.read_csv(self.csv_file_path)
+        destinations = []
+        for index, row in self.df.iterrows():
+            if pd.notna(row['dst_name']):
+                if pd.notna(row['opt_id']):
+                    row['opt_id'] = int(row['opt_id'])
+                if pd.notna(row['opt_post_id']):
+                    row['opt_post_id'] = int(row['opt_post_id'])
+                if pd.notna(row['opt_average_age']):
+                    row['opt_average_age'] = int(row['opt_average_age'])
+                dest = Destination(
+                    opt_id=row['opt_id'],
+                    opt_post_id=row['opt_post_id'],
+                    opt_vibe=row['opt_vibe'],
+                    opt_best_season=row['opt_best_season'],
+                    opt_average_age=row['opt_average_age'],
+                    opt_average_budget=row['opt_average_budget'],
+                    dst_name=row['dst_name']
+                )
+                destinations.append(dest)
+        return destinations
