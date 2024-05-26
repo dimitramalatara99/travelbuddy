@@ -40,11 +40,12 @@ class Destination(Options):
 
 class Experience(Options):
 
-    def __init__(self, opt_id, opt_post_id, opt_vibe, opt_best_season, opt_average_age, opt_average_budget, exp_name, exp_destination, exp_bookings):
+    def __init__(self, opt_id, opt_post_id, opt_vibe, opt_best_season, opt_average_age, opt_average_budget, exp_name, exp_destination, exp_bookings, exp_info):
         super().__init__(opt_id, opt_post_id, opt_vibe, opt_best_season, opt_average_age, opt_average_budget)
         self.exp_name = exp_name
         self.exp_destination = exp_destination
         self.exp_bookings = exp_bookings
+        self.exp_info = exp_info
 
     def __repr__(self):
         return f"Experience(exp_name={self.exp_name})"

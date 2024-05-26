@@ -31,7 +31,8 @@ class CSVController:
                         opt_average_budget=row['opt_average_budget'],
                         exp_name=row['exp_name'],
                         exp_destination=row['exp_destination'],
-                        exp_bookings=row['exp_bookings']
+                        exp_bookings=row['exp_bookings'],
+                        exp_info=row['exp_info']
                     )
                     if self.apply_filters(experience, filters):
                         experiences.append(experience)

@@ -1,0 +1,5 @@
+u_id,u_email,u_phone,tv_name,tv_last_name,tv_age,tv_wallet,tv_tb,tv_friends,tv_authentication,b_name,b_destination,b_bookings,tr_id,tr_traveler,tr_status,tr_date,tr_options,tr_phone,tr_advance_pay,tr_payment_type,tr_payment_status,opt_id,opt_post_id,opt_vibe,opt_best_season,opt_average_age,opt_average_budget,dst_name,exp_name,exp_destination,exp_bookings,exp_info,tb_id,tb_status,tb_trip,tb_info,tb_request,tb_buddies,w_id,w_balance,r_id,r_options,r_travelers
+,,,,,,,,,,,,,,,,,,,,,,1,1,Adventure,Summer,20s,1000,athens,Water Slides,athens,30,Experience the fun of summer,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,2,2,culture,summer,30s,1500,athens,Acropolis Museum,athens,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,3,3,exploration,autumn,20s,2000,athens,Boat Cruise,athens,,Beautiful Sea,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,4,4,relaxation,winter,35s,2500,Amsterdam,,,,,,,,,,,,,,,
