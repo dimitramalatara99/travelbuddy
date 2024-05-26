@@ -1,18 +1,17 @@
 # main.py
 from controllers import *
 from dal import CSVController
-from views import TripForm
+from views import HomeScreen
 
 
 def main():
-
     dal = CSVController('tb_updated.csv')
     business_controller = BusinessController(dal)
     trip_controller = TripController(dal)
     destination_controller = DestinationController(dal)
-    destination_controller.create_all_destinations()
-    trip_form = TripForm(trip_controller, destination_controller, business_controller)
-    trip_form.getTripForm()
+    home_screen = HomeScreen(dal, business_controller, trip_controller, destination_controller)
+    home_screen.homeInit()
+
 
 
 if __name__ == "__main__":

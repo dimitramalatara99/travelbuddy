@@ -31,7 +31,6 @@ class DestinationController:
 
     def create_all_destinations(self):
         self.destinations = self.dal.load_all_dest()
-        print(self.destinations)
 
     def check_destination(self, b_dest):
         name = b_dest.lower()

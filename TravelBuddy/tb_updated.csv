@@ -39,4 +39,5 @@ u_id,u_email,u_phone,tv_name,tv_last_name,tv_age,tv_wallet,tv_tb,tv_friends,tv_a
 ,,,,,,,,,,,,,29.0,1.0,pending_pay,3,,athens,6.0,,,unknown,unknown,unknown,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,30.0,1.0,pending_pay,3,,athens,6.0,,,unknown,unknown,unknown,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,31.0,1.0,pending_pay,3,,athens,6.0,,,unknown,unknown,unknown,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,32.0,1,pending_pay,3,,athens,6.0,,,unknown,unknown,unknown,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,32.0,1.0,pending_pay,3,,athens,6.0,,,unknown,unknown,unknown,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,33.0,1,pending_pay,3,,athens,6.0,,,unknown,unknown,unknown,,,,,,,,,,,,,,,,,,,,,

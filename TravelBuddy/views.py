@@ -5,6 +5,34 @@ from kivy.uix.button import Button
 # from kivy.uix.listview import ListView
 
 
+class HomeScreen:
+    def __init__(self, dal, business_controller, trip_controller, destination_controller):
+        self.dal = dal
+        self.business_controller = business_controller
+        self.trip_controller = trip_controller
+        self.destination_controller = destination_controller
+
+    def homeInit(self):
+        self.destination_controller.create_all_destinations()
+        print('Welcome to Travel Buddy!')
+        while True:
+            action = input(
+                "Actions:\nBook Trip\nBook Experience\nInvite\nAdd Business\n Choose Action:")
+            action = action.lower()
+            if action == 'book trip':
+                self.bookTrip(self.trip_controller, self.destination_controller, self.business_controller)
+                break
+            elif action == 'book experience':
+                print('Book Experience')
+                break
+            else:
+                print("Invalid input. Please choose a valid action.")
+
+    def bookTrip(self, trip_controller, destination_controller, business_controller):
+        trip_form = TripForm(trip_controller, destination_controller, business_controller)
+        trip_form.getTripForm()
+
+
 class TripForm:
     def __init__(self, trip_controller, destination_controller, business_controller):
         self.trip_controller = trip_controller
