@@ -89,17 +89,17 @@ class Invite:
         self.invite_status = invite_status
 
 
-class Trip:
-    def __init__(self, tr_id, tr_traveler, tr_status, tr_date, tr_options, tr_phone, tr_advance_pay, tr_payment_type, tr_payment_status):
-        self.tr_id = tr_id
-        self.tr_traveler = tr_traveler
-        self.tr_status = tr_status
-        self.tr_date = tr_date
-        self.tr_options = tr_options
-        self.tr_phone = tr_phone
-        self.tr_advance_pay = tr_advance_pay
-        self.tr_payment_type = tr_payment_type
-        self.tr_payment_status = tr_payment_status
+# class Trip:
+#     def __init__(self, tr_id, tr_traveler, tr_status, tr_date, tr_options, tr_phone, tr_advance_pay, tr_payment_type, tr_payment_status):
+#         self.tr_id = tr_id
+#         self.tr_traveler = tr_traveler
+#         self.tr_status = tr_status
+#         self.tr_date = tr_date
+#         self.tr_options = tr_options
+#         self.tr_phone = tr_phone
+#         self.tr_advance_pay = tr_advance_pay
+#         self.tr_payment_type = tr_payment_type
+#         self.tr_payment_status = tr_payment_status
 
 
 class Options:
