@@ -49,6 +49,31 @@ class CSVController:
         self.df = pd.concat([self.df, new_df], ignore_index=True)
         self.df.to_csv(self.csv_file_path, index=False)
 
+    def get_max_tb_id(self):
+        max_id = self.df['tb_id'].max()
+        return max_id.astype(int)
+
+    def get_dest_id(self, dest):
+        dest_row = self.df[self.df['dst_name'] == dest]
+        dest_id = dest_row['opt_id'].values[0]
+        return dest_id
+
+    def add_TB(self, tb):
+        new_row = {
+            'tb_id': tb.tb_id,
+            'tb_status': tb.tb_status,
+            'tb_traveler': tb.tb_traveler,
+            'tb_dest': tb.tb_dest,
+            'tb_min_age': tb.tb_min_age,
+            'tb_max_age': tb.tb_max_age,
+            'tb_vibe': tb.tb_vibe,
+            'tb_request': tb.tb_request,
+            'tb_buddies': tb.tb_buddies
+        }
+        new_df = pd.DataFrame([new_row])
+        self.df = pd.concat([self.df, new_df], ignore_index=True)
+        self.df.to_csv(self.csv_file_path, index=False)
+
     def get_basket(self, traveler):
         basket = []
         self.df = pd.read_csv(self.csv_file_path)
@@ -105,3 +130,36 @@ class CSVController:
                 )
                 destinations.append(dest)
         return destinations
+
+    def get_TB(self, traveler, tb_dest, tb_vibe, tb_min_age, tb_max_age):
+        buddies = []
+        self.df = pd.read_csv(self.csv_file_path)
+
+        dest = self.get_dest_id(tb_dest)
+
+        filtered_df = self.df[(self.df['tb_dest'] == dest) & (self.df['tb_vibe'] == str(tb_vibe))]
+        travelers_dict = {row['u_id']: row for index, row in self.df.iterrows()}
+
+        for index, row in filtered_df.iterrows():
+            tb_id = int(row['tb_id'])
+            if tb_id in travelers_dict:
+                row1 = travelers_dict[tb_id]
+                u_id = int(row1['u_id']) if pd.notna(row1['u_id']) else None
+                if (u_id != int(traveler)) & (int(tb_min_age) < int(row1['tv_age']) < int(tb_max_age)):
+                    tv_age = int(row1['tv_age']) if pd.notna(row1['tv_age']) else None
+                    tv_tb = int(row1['tv_tb']) if pd.notna(row1['tv_tb']) else None
+                    buddy = Traveler(
+                        u_id=u_id,
+                        u_email=row1['u_email'],
+                        u_phone=row1['u_phone'],
+                        tv_name=row1['tv_name'],
+                        tv_last_name=row1['tv_last_name'],
+                        tv_age=tv_age,
+                        tv_hobbies=row1['tv_hobbies'],
+                        tv_wallet=row1['tv_wallet'],
+                        tv_tb=tv_tb,
+                        tv_friends=row1['tv_friends'],
+                        tv_authentication=row1['tv_authentication']
+                        )
+                    buddies.append(buddy)
+        return buddies

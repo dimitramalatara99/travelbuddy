@@ -1,7 +1,7 @@
 from dal import CSVController
 from models import *
 from views import AccommodationScreen
-
+import datetime
 
 class BusinessController:
     def __init__(self, dal):
@@ -39,3 +39,21 @@ class DestinationController:
     def show_dests(self):
         return self.destinations
 
+
+class TBController:
+    def __init__(self, dal):
+        self.dal = dal
+
+    def findTravelers(self, traveler, tb_dest, tb_vibe, tb_min_age, tb_max_age):
+        return self.dal.get_TB(traveler, tb_dest, tb_vibe, tb_min_age, tb_max_age)
+
+    def check_tb_id(self, tbs, tb_id):
+        return any(int(tb.u_id) == int(tb_id) for tb in tbs)
+
+    def add_tb(self, tbs, tb_traveler, tb_dest, tb_min_age, tb_max_age, tb_vibe):
+        dest = self.dal.get_dest_id(tb_dest)
+        new_id = self.dal.get_max_tb_id() + 1
+        for index, tb in enumerate(tbs, start=1):
+            new_TB = TB(tb_id=new_id, tb_status='pending', tb_traveler=tb_traveler, tb_dest=dest,
+                        tb_min_age=tb_min_age, tb_max_age=tb_max_age, tb_vibe=tb_vibe, tb_request=index, tb_buddies=tb)
+            self.dal.add_TB(new_TB)

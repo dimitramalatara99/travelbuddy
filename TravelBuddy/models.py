@@ -5,6 +5,23 @@ class User:
         self.u_phone = u_phone
 
 
+class Traveler(User):
+    def __init__(self, u_id, u_email, u_phone, tv_name, tv_last_name, tv_age, tv_hobbies, tv_wallet, tv_tb, tv_friends, tv_authentication):
+        super().__init__(u_id, u_email, u_phone)
+        self.tv_name = tv_name
+        self.tv_last_name = tv_last_name
+        self.tv_age = tv_age
+        self.tv_hobbies = tv_hobbies
+        self.tv_wallet = tv_wallet
+        self.tv_tb = tv_tb
+        self.tv_friends = tv_friends
+        self.tv_authentication = tv_authentication
+
+    def __repr__(self):
+        return (f"Traveler(tv_name={self.tv_name}, tv_last_name={self.tv_last_name}, tv_age={self.tv_age}, "
+                f"tv_wallet={self.tv_wallet}, tv_tb={self.tv_tb}, tv_friends={self.tv_friends}, tv_authentication={self.tv_authentication})")
+
+
 class Business(User):
     instances = []
 
@@ -16,7 +33,6 @@ class Business(User):
         Business.instances.append(self)
 
     def __repr__(self):
-        # Provide a string representation of the object for debugging
         return f"Business(b_name={self.b_name}, b_destination={self.b_destination}, b_bookings={self.b_bookings})"
 
 
@@ -42,8 +58,6 @@ class Destination(Options):
                 f"opt_best_season={self.opt_best_season}, opt_average_age={self.opt_average_age}, opt_average_budget={self.opt_average_budget}, dst_name={self.dst_name})")
 
 
-
-
 class Trip:
     def __init__(self, tr_id, tr_traveler, tr_status, tr_people, tr_date, tr_destination, tr_accommodation, tr_options, tr_phone, tr_advance_pay, tr_payment_type, tr_payment_status):
         self.tr_id = tr_id
@@ -64,4 +78,22 @@ class Trip:
         return (f"Trip=(tr_id={self.tr_id}, tr_traveler={self.tr_traveler}, tr_status={self.tr_status}, "
                 f"tr_people={self.tr_people}, tr_date={self.tr_date}, tr_destination={self.tr_destination}, "
                 f"tr_accommodation={self.tr_accommodation}, tr_options={self.tr_options},tr_phone={self.tr_phone}, "
-                f"tr_advance_pay={self.tr_advance_pay}, tr_payment_type ={self.tr_payment_type},tr_payment_status ={self.tr_payment_status}")
+                f"tr_advance_pay={self.tr_advance_pay}, tr_payment_type ={self.tr_payment_type},tr_payment_status ={self.tr_payment_status})")
+
+
+class TB:
+    def __init__(self, tb_id, tb_status, tb_traveler, tb_dest, tb_min_age, tb_max_age, tb_vibe, tb_request, tb_buddies):
+        self.tb_id = tb_id
+        self.tb_status = tb_status
+        self.tb_traveler = tb_traveler
+        self.tb_dest = tb_dest
+        self.tb_min_age = tb_min_age
+        self.tb_max_age = tb_max_age
+        self.tb_vibe = tb_vibe
+        self.tb_request = tb_request
+        self.tb_buddies = tb_buddies
+
+    def __repr__(self):
+        return (f"Business(tb_id={self.tb_id}, tb_status={self.tb_status}, tb_traveler={self.tb_traveler}, "
+                f"tb_dest={self.tb_dest}, tb_min_age={self.tb_min_age}, tb_max_age={self.tb_max_age}, "
+                f"tb_vibe={self.tb_vibe}, tb_request={self.tb_request}, tb_buddies={self.tb_buddies})")
