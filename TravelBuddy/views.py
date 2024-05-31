@@ -232,12 +232,26 @@ class ConfirmationScreen:
         while True:
             conf = input("Enter 'Confirm' to  complete or 'Cancel' to cancel.\n")
             if conf.lower() == 'confirm':
-                self.tb_controller.add_tb(selected, traveler, destination, min_age, max_age, vibe)
-                print('Completed')
+                self.confirmTB(selected, traveler, destination, min_age, max_age, vibe)
                 break
             elif conf.lower() == 'cancel':
-                home_screen = HomeScreen(self.dal, self.business_controller, self.trip_controller, self.destination_controller, self.tb_controller)
-                home_screen.homeInit()
+                self.rejectTB()
                 break
             else:
                 print("Invalid input. Please write 'Confirm' or 'Cancel'.")
+
+    def confirmTB(self, selected, traveler, destination, min_age, max_age, vibe):
+        self.tb_controller.add_tb(selected, traveler, destination, min_age, max_age, vibe)
+        fres = FinalResultScreen()
+        fres.goToFinalRS()
+
+    def rejectTB(self):
+        home_screen = HomeScreen(self.dal, self.business_controller, self.trip_controller, self.destination_controller,
+                                 self.tb_controller)
+        home_screen.homeInit()
+
+
+class FinalResultScreen:
+    def goToFinalRS(self):
+        print('Welcome to Final Result Screen!')
+        print('Completed')

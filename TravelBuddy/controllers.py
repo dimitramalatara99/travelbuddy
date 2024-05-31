@@ -3,6 +3,7 @@ from models import *
 from views import AccommodationScreen
 import datetime
 
+
 class BusinessController:
     def __init__(self, dal):
         self.dal = dal
